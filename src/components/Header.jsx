@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 const Header = () => {
   return (
     <nav className='flex justify-between px-10 py-2 bg-gradient-to-r from-blue-200 to-blue-700 items-center'>
@@ -14,9 +16,12 @@ const Header = () => {
                 <Link href={'/about'}>
                     About
                 </Link>
-                <Link href={'/signin'}>
-                    Signin
-                </Link>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
+                <SignedOut>
+                    <SignInButton />
+                </SignedOut>
             </ul>
         </div>
     </nav>
